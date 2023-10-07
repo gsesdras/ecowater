@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.familiaemmissoes.app"
+    namespace = "com.ecowater.app"
     compileSdk = libs.versions.sdk.target.get().toInt()
 
     defaultConfig {
-        applicationId = "com.familiaemmissoes.app"
+        applicationId = "com.ecowater.app"
         minSdk = libs.versions.sdk.min.get().toInt()
         targetSdk = libs.versions.sdk.target.get().toInt()
         versionCode = 1
@@ -44,11 +44,6 @@ android {
 }
 
 dependencies {
-    implementation(project((":authentication")))
-    implementation(project((":dsm")))
-    implementation(project((":network")))
-    implementation(project((":datasource")))
-
     // Core
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime)
@@ -61,9 +56,6 @@ dependencies {
     implementation(platform(libs.compose.bom))
     implementation(libs.bundles.compose)
     implementation(libs.compose.coil)
-
-    // Markdown
-    implementation(libs.markdown)
 
     // Test
     testImplementation(libs.junit)

@@ -1,4 +1,4 @@
-package com.familiaemmissoes.app
+package com.ecowater.app
 
 import org.junit.Test
 

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Missoes</string>
+    <string name="app_name">EcoWater</string>
 
 <!--  Home  -->
     <string name="drawer_home">Home</string>

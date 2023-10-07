@@ -1,7 +1,7 @@
-package com.familiaemmissoes.app.core
+package com.ecowater.app.core
 
 import android.app.Application
-import com.familiaemmissoes.app.di.appModule
+import com.ecowater.app.di.appModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 

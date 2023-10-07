@@ -14,5 +14,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Missoes"
+rootProject.name = "EcoWater"
 include(":app")

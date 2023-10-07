@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.Missoes.Splash" parent="Theme.SplashScreen">
+    <style name="Theme.EcoWater.Splash" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/black</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/splash_logo</item>
-        <item name="postSplashScreenTheme">@style/Theme.Missoes</item>
+        <item name="postSplashScreenTheme">@style/Theme.EcoWater</item>
     </style>
 </resources>
