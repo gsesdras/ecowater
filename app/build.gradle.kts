@@ -56,6 +56,12 @@ dependencies {
     implementation(platform(libs.compose.bom))
     implementation(libs.bundles.compose)
     implementation(libs.compose.coil)
+    implementation(libs.accompanist.flowlayout)
+
+    // Maps
+    implementation(libs.maps)
+    implementation(libs.play.services.maps)
+    implementation(libs.play.services.location)
 
     // Test
     testImplementation(libs.junit)

@@ -16,34 +16,43 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import com.ecowater.app.features.details.presentation.DetailsScreen
 import com.ecowater.app.features.map.presentation.MapScreen
+import com.ecowater.app.ui.EcoWaterTheme
 import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
+
     @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
+        installSplashScreen()
         super.onCreate(savedInstanceState)
         setContent {
-            Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-                val sheetState = rememberModalBottomSheetState()
-                val scope = rememberCoroutineScope()
-                var showBottomSheet by remember { mutableStateOf(false) }
+            EcoWaterTheme {
+                Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
+                    val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
+                    val scope = rememberCoroutineScope()
+                    var showBottomSheet by remember { mutableStateOf(false) }
+                    var selectedLocationId by remember { mutableStateOf("") }
 
-                MapScreen {
-                    scope.launch {
-                        showBottomSheet = true
+                    MapScreen {
+                        selectedLocationId = it
+                        scope.launch {
+                            showBottomSheet = true
+                        }
                     }
-                }
 
-                if (showBottomSheet) {
-                    ModalBottomSheet(
-                        onDismissRequest = {
-                            showBottomSheet = false
-                        },
-                        sheetState = sheetState
-                    ) {
-                        // Sheet content
-                        Text("Hello World")
+                    if (showBottomSheet) {
+                        ModalBottomSheet(
+                            onDismissRequest = {
+                                selectedLocationId = ""
+                                showBottomSheet = false
+                            },
+                            sheetState = sheetState
+                        ) {
+                            DetailsScreen(id = selectedLocationId)
+                        }
                     }
                 }
             }
