@@ -132,7 +132,6 @@ fun MapScreen(
     Scaffold(
         floatingActionButton = {
             FloatingActionButton(onClick = {
-                waterNotificationService.showBasicNotification()
                 infoBottomSheetEnabled = true
             }) {
                 Icon(imageVector = Icons.Filled.KeyboardArrowUp, contentDescription = null)
