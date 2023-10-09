@@ -17,9 +17,9 @@ The app provides comprehensive details about water quality standards at that spe
 
 But EcoWater goes beyond that. It not only informs about water quality but also provides guidance on how to use water for recreation safely and responsibly, without harming marine life or polluting bodies of water. Our simple and intuitive approach makes protecting aquatic resources an accessible task for everyone.
 
-Location Detail                             |  Specie Details                             |  Map
-:------------------------------------------:|:-------------------------------------------:|:-------------------------
-<img width="200px" src="images/3.jpeg" />   | <img width="200px" src="images/4.jpeg" />   |  <img width="200px" src="images/5.jpeg" />
+Location Detail                             |  Specie Details                             |  Map                                         |  Notification
+:------------------------------------------:|:-------------------------------------------:|:--------------------------------------------:|:-------------------------------------------
+<img width="200px" src="images/3.jpeg" />   | <img width="200px" src="images/4.jpeg" />   |  <img width="200px" src="images/5.jpeg" />   |  <img width="200px" src="images/6.jpeg" />
 
 ## Tools and data
 
