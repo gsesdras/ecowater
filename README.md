@@ -20,7 +20,7 @@ But EcoWater goes beyond that. It not only informs about water quality but also 
 Also, whenever you encounter a mapped body of water, we will notify you, so you can learn more about it!
 
 Location Detail                             |  Specie Details                             |  Map                                         |  Notification
-:------------------------------------------:|:-------------------------------------------:|:--------------------------------------------:|:-------------------------------------------
+:------------------------------------------:|:-------------------------------------------:|:--------------------------------------------:|:-------------------------------------------:
 <img width="200px" src="images/3.jpeg" />   | <img width="200px" src="images/4.jpeg" />   |  <img width="200px" src="images/5.jpeg" />   |  <img width="200px" src="images/6.jpeg" />
 
 ## Tools and data
