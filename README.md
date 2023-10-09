@@ -27,10 +27,7 @@ Location Detail                             |  Specie Details                   
 
 The application was entirely developed using Jetpack Compose, which is a Kotlin-based UI library. It is the official library for Android devices and adheres to accessibility standards to ensure widespread accessibility of the tool.
 
-
 During the development and data collection process, we actively searched for both national and international APIs. However, due to the challenge of finding APIs containing relevant information about water quality and/or data on threatened species in rivers, lakes, and seas, we chose to gather the necessary data from scientific research (dissertations and articles from the Federal University of Sergipe), official NGO websites (WWF, IUCN, TAMAR Project), and government websites (ANA, IBGE). We then synthesized this data to be presented through the app.
-
-
 
 ## Features
 
