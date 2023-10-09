@@ -10,6 +10,7 @@ core-splashscreen = "1.0.1"
 lifecycle-runtime = "2.6.2"
 navigation = "2.7.3"
 slf4j = "1.7.36"
+accompanistPermissions = "0.31.3-beta"
 
 # Security
 security-crypto = "1.0.0"
@@ -53,6 +54,7 @@ kotlin = "1.9.10"
 
 [libraries]
 # Core
+accompanist-permissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanistPermissions" }
 core-ktx = { module = "androidx.core:core-ktx", version.ref = "core-ktx" }
 core-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "core-splashscreen" }
 lifecycle-runtime = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle-runtime" }

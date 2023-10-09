@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -35,6 +36,9 @@ fun SpecieScreen(specie: EndangeredSpecie) {
 
     Card(colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)) {
         AsyncImageWithShimmer(
+            modifier = Modifier
+                .fillMaxWidth()
+                .aspectRatio(1.5f),
             imageUrl = specie.imageUrl,
             shape = RectangleShape,
             contentScale = ContentScale.Crop
@@ -67,7 +71,7 @@ fun SpecieScreen(specie: EndangeredSpecie) {
                             .padding(horizontal = 8.dp, vertical = 4.dp)
                     ) {
                         Text(
-                            text = specie.system,
+                            text = specie.system.capitalize(),
                             style = MaterialTheme.typography.labelLarge,
                             fontSize = 10.sp
                         )
@@ -83,7 +87,7 @@ fun SpecieScreen(specie: EndangeredSpecie) {
                 LazyColumn {
                     items(specie.principalThreats) { threat ->
                         Text(
-                            text = threat,
+                            text = "• " + threat.capitalize(),
                             style = MaterialTheme.typography.labelMedium,
                             fontSize = 14.sp,
                             fontWeight = FontWeight.Thin
@@ -100,7 +104,7 @@ fun SpecieScreen(specie: EndangeredSpecie) {
                 LazyColumn {
                     items(specie.protectiveMeasures) { protectiveMeasure ->
                         Text(
-                            text = protectiveMeasure,
+                            text = "• " + protectiveMeasure.capitalize(),
                             style = MaterialTheme.typography.labelMedium,
                             fontSize = 14.sp,
                             fontWeight = FontWeight.Thin

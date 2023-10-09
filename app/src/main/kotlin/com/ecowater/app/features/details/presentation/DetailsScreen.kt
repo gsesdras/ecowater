@@ -3,6 +3,7 @@ package com.ecowater.app.features.details.presentation
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
@@ -16,7 +17,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardColors
@@ -26,19 +26,15 @@ import androidx.compose.material3.DividerDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -51,66 +47,102 @@ import com.ecowater.app.ui.RobotoFamily
 import com.ecowater.app.ui.components.AsyncImageWithShimmer
 import com.ecowater.app.ui.components.AutoSizeText
 import com.ecowater.app.ui.components.Tag
-import org.koin.androidx.compose.koinViewModel
-
-@Composable
-fun DetailsScreen(
-    viewModel: DetailsViewModel = koinViewModel(),
-    id: String
-) {
-    LaunchedEffect(Unit) {
-        viewModel.fetchLocation(id)
-    }
-
-    val location by viewModel.location.collectAsState()
-
-    location?.let { DetailsScreen(it) }
-}
+import java.util.Locale
 
 @Composable
 fun DetailsScreen(location: Location) {
     var isDialogOpen by remember { mutableStateOf(false) }
     var selectedSpecie by remember { mutableStateOf<EndangeredSpecie?>(null) }
 
-    Column(
+    LazyColumn(
         modifier = Modifier
             .systemBarsPadding()
             .fillMaxWidth()
             .fillMaxHeight(0.9f)
-            .padding(16.dp)
+            .padding(horizontal = 16.dp)
+            .padding(bottom = 16.dp)
     ) {
-
-        Header(location = location)
-        TitleCard(title = "Description", contentTopPadding = 4.dp) {
-            Text(
-                text = location.description,
-                fontFamily = RobotoFamily,
-                fontSize = 16.sp,
-                fontWeight = FontWeight.Light
-            )
+        item {
+            Header(location = location)
         }
-        Spacer(modifier = Modifier.height(16.dp))
-        TitleCard(title = "Endangered Species", contentTopPadding = 8.dp) {
-            LazyColumn {
-                itemsIndexed(location.endangeredSpecies) { index, specie ->
-                    EndangeredSpeciesItem(specie = specie) {
+        item {
+            TitleCard(title = "Description", contentTopPadding = 4.dp) {
+                Text(
+                    text = location.description,
+                    fontFamily = RobotoFamily,
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.Light
+                )
+            }
+            Spacer(modifier = Modifier.height(16.dp))
+        }
+        item {
+            Row {
+                Box(Modifier.weight(0.43f)) {
+                    TitleCard(title = "Water pH Level", contentTopPadding = 4.dp) {
+                        Text(
+                            text = location.aquaQuality.ph.toString(),
+                            fontFamily = RobotoFamily,
+                            fontSize = 54.sp,
+                            fontWeight = FontWeight.Medium
+                        )
+                    }
+                }
+                Spacer(modifier = Modifier.weight(0.03f))
+                Box(Modifier.weight(0.46f)) {
+                    TitleCard(title = "Water turbidity", contentTopPadding = 4.dp) {
+                        Text(
+                            text = location.aquaQuality.turbidity.toString(),
+                            fontFamily = RobotoFamily,
+                            fontSize = 54.sp,
+                            fontWeight = FontWeight.Medium
+                        )
+                    }
+                }
+            }
+            Spacer(modifier = Modifier.height(16.dp))
+        }
+
+        item {
+            TitleCard(title = "Endangered Species", contentTopPadding = 8.dp) {
+                location.endangeredSpecies.forEachIndexed { index, endangeredSpecie ->
+                    EndangeredSpeciesItem(specie = endangeredSpecie) {
                         isDialogOpen = true
-                        selectedSpecie = specie
+                        selectedSpecie = endangeredSpecie
                     }
                     if (index != location.endangeredSpecies.size - 1) {
                         Divider(color = DividerDefaults.color.copy(alpha = 0.5f))
                     }
                 }
             }
+            Spacer(modifier = Modifier.height(16.dp))
         }
 
-        if (isDialogOpen && selectedSpecie != null) {
-            Dialog(onDismissRequest = {
-                isDialogOpen = false
-                selectedSpecie = null
-            }) {
-                SpecieScreen(specie = selectedSpecie!!)
+        item {
+            TitleCard(title = "How to preserve our bodies of water", contentTopPadding = 4.dp) {
+                listOf(
+                    "Not leaving trash on the beach to protect the sea.",
+                    "Reducing plastic usage and recycling to prevent ocean pollution.",
+                    "Choosing environmentally friendly products, such as coral-safe sunscreens."
+                ).forEach {
+                    Text(
+                        text = "• " + it.capitalize(),
+                        style = MaterialTheme.typography.labelMedium,
+                        fontSize = 14.sp,
+                        fontWeight = FontWeight.Thin
+                    )
+                    Spacer(modifier = Modifier.height(4.dp))
+                }
             }
+        }
+    }
+
+    if (isDialogOpen && selectedSpecie != null) {
+        Dialog(onDismissRequest = {
+            isDialogOpen = false
+            selectedSpecie = null
+        }) {
+            SpecieScreen(specie = selectedSpecie!!)
         }
     }
 }
@@ -236,7 +268,7 @@ fun EndangeredSpeciesItem(specie: EndangeredSpecie, onClick: () -> Unit) {
                         .padding(horizontal = 8.dp, vertical = 4.dp)
                 ) {
                     Text(
-                        text = specie.system,
+                        text = specie.system.capitalize(),
                         style = MaterialTheme.typography.labelLarge,
                         fontSize = 10.sp
                     )
@@ -255,7 +287,7 @@ fun AlertLevelCard(level: AlertLevel) {
                 .padding(horizontal = 8.dp, vertical = 4.dp)
         ) {
             Text(
-                text = level.value,
+                text = level.value.capitalize(),
                 style = MaterialTheme.typography.labelLarge,
                 fontSize = 10.sp,
                 color = level.textColor
@@ -264,14 +296,5 @@ fun AlertLevelCard(level: AlertLevel) {
     }
 }
 
-@Preview(showSystemUi = true)
-@Composable
-fun DetailsScreenPreview() {
-    DetailsScreen(location = Location.sample)
-}
-
-//@Preview
-//@Composable
-//fun AlertLevelCardPreview() {
-//    AlertLevelCard(AlertLevel.InDanger)
-//}
+fun String.capitalize() =
+    replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
