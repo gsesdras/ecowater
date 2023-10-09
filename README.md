@@ -5,6 +5,7 @@ Our solution to the proposed challenge: an application that allows users to asse
 
 We have developed this solution in a functional manner, using cutting-edge technology and creativity, ensuring that it is a powerful and accessible tool for everyone, following the accessibility standards of the Android system resources. Our application not only provides critical information but also educates people on how to use water consciously and sustainably, always with the aim of providing quality information and preserving our aquatic biodiversity.
 
+<img src="https://raw.githubusercontent.com/gsesdras/ecowater/main/images/1.jpeg?token=GHSAT0AAAAAACIRS6IZ4C5UMC2RVA2A63EEZJDJQUA" />
 
 ## Details
 
