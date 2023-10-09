@@ -5,7 +5,9 @@ Our solution to the proposed challenge: an application that allows users to asse
 
 We have developed this solution in a functional manner, using cutting-edge technology and creativity, ensuring that it is a powerful and accessible tool for everyone, following the accessibility standards of the Android system resources. Our application not only provides critical information but also educates people on how to use water consciously and sustainably, always with the aim of providing quality information and preserving our aquatic biodiversity.
 
-<img src="https://raw.githubusercontent.com/gsesdras/ecowater/main/images/1.jpeg?token=GHSAT0AAAAAACIRS6IZ4C5UMC2RVA2A63EEZJDJQUA" />
+Onboarding                                |  Location Detail                                    
+:----------------------------------------:|:-------------------------------------------:
+<img width="200px" src="images/1.jpeg" />  | <img width="200px" src="images/2.jpeg" />
 
 ## Details
 
@@ -14,6 +16,10 @@ EcoWater, in the blink of an eye, finds the nearest beaches to you. It's as simp
 The app provides comprehensive details about water quality standards at that specific location, allowing you to make informed decisions about whether it's safe to swim.
 
 But EcoWater goes beyond that. It not only informs about water quality but also provides guidance on how to use water for recreation safely and responsibly, without harming marine life or polluting bodies of water. Our simple and intuitive approach makes protecting aquatic resources an accessible task for everyone.
+
+Location Detail                             |  Specie Details                             |  Map
+:------------------------------------------:|:-------------------------------------------:|:-------------------------
+<img width="200px" src="images/3.jpeg" />   | <img width="200px" src="images/4.jpeg" />   |  <img width="200px" src="images/5.jpeg" />
 
 ## Tools and data
 
@@ -43,6 +49,8 @@ Additionally, the app encourages campaign sharing with a share button.
 
 
 ## Authors
+
+<img width="500px" src="images/group.jpeg" />
 
 - Ágatha Sobral
 - Esdras Gois
