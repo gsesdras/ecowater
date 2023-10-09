@@ -48,7 +48,7 @@ The application not only provides information about water quality and biodiversi
 This includes tips on how to swim or recreate in the water without harming aquatic biodiversity or polluting bodies of water.
 Additionally, the app encourages campaign sharing with a share button.
 
-
+If you want to run the app in your computer, please read: [Start Project Readme]
 
 ## Authors
 
@@ -61,4 +61,5 @@ Additionally, the app encourages campaign sharing with a share button.
 - Keven Teles
 - Raquel Figueiredo
 
+[Start Project Readme]: https://github.com/gsesdras/ecowater/blob/main/START_PROJECT.md
 
