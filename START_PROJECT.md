@@ -1,4 +1,4 @@
-## Running a Generic Android Project on Android Studio
+## Running EcoWater Project on Android Studio
 
 **Prerequisites:**
 
